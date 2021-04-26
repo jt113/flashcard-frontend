@@ -31,7 +31,7 @@ class ManageFlashcardsComponent extends React.Component {
 
     }
     updateFlashcardClicked(id, question, answer){
-        this.props.history.push(`/flashcard/${id}/${question}`)
+        this.props.history.push(`/flashcard/${id}`)
     }
     render() {
         return (

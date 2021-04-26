@@ -24,7 +24,7 @@ class RouterComponent extends Component {
                             <Route path="/home" exact component={FlashcardHomeComponent} />
                             <Route path="/manage" exact component={ManageFlashcardsComponent} />
                             <Route path="/study" exact component={StudyFlashcardsComponent} />
-                            <Route path="/flashcard/:id/:question" component={UpdateFlashcardComponent} />
+                            <Route path="/flashcard/:id" component={UpdateFlashcardComponent} />
                         </Switch>
                     <FooterComponent />
                 </>
