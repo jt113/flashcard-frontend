@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import UserDataService from '../../service/UserDataService';
 import Cookies from 'js-cookie'
 // props {
-//     setIsLoggedIn: function
+//     setIsLoggedIn(boolean): function
 // }
 class WelcomeComponent extends Component {
     constructor(props){
@@ -11,6 +11,7 @@ class WelcomeComponent extends Component {
         this.state = {
             username: "",
             password: "",
+            jumbotronMinHeight: 900,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this)
@@ -18,6 +19,9 @@ class WelcomeComponent extends Component {
     }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
+        const { innerWidth: width, innerHeight: height } = window;
+        console.log("height: " + height);
+        this.setState({jumbotronMinHeight: height});
         var loggedInUser = Cookies.get('username');
         if(loggedInUser !== undefined){
             this.props.history.push(`/home`);
@@ -54,10 +58,10 @@ class WelcomeComponent extends Component {
     render() {
         return (
                 <div className="container clear-top"  id="main">
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mt-3">
                         <br />
                         <div className="col-md-8">
-                            <div className="jumbotron" style={{ textAlign: "center", backgroundColor: "white" }}>
+                            <div className="jumbotron" style={{ textAlign: "center", backgroundColor: "white", minHeight: `${this.state.jumbotronMinHeight * 0.85}px` }}>
                                 <h1 style={{ color: "Blue" }}>Welcome to Flashcard App!!!</h1>
                                 <br />
                                 <form onSubmit={this.handleSubmit}>
