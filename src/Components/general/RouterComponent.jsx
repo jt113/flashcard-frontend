@@ -8,6 +8,7 @@ import FlashcardHomeComponent from '../flashcard/FlashcardHomeComponent'
 import ManageFlashcardsComponent from '../flashcard/ManageFlashcardsComponent';
 import StudyFlashcardsComponent from '../flashcard/StudyFlashcardsComponent';
 import UpdateFlashcardComponent from '../flashcard/UpdateFlashcardComponent'
+import CreateFlashcardComponent from '../flashcard/CreateFlashcardComponent';
 class RouterComponent extends Component {
     render() {
         return (
@@ -25,6 +26,7 @@ class RouterComponent extends Component {
                             <Route path="/manage" exact component={ManageFlashcardsComponent} />
                             <Route path="/study" exact component={StudyFlashcardsComponent} />
                             <Route path="/flashcard/:id" component={UpdateFlashcardComponent} />
+                            <Route path="/add_flashcard/:id" component={CreateFlashcardComponent} />
                         </Switch>
                     <FooterComponent />
                 </>

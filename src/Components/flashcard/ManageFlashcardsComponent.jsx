@@ -11,9 +11,14 @@ class ManageFlashcardsComponent extends React.Component {
         this.refreshFlashcards = this.refreshFlashcards.bind(this);
         this.updateFlashcardClicked = this.updateFlashcardClicked.bind(this);
         this.deleteFlashcardClicked = this.deleteFlashcardClicked.bind(this);
+        this.handleAddFlashcardClick = this.handleAddFlashcardClick.bind(this);
     }
     componentDidMount() {
         this.refreshFlashcards();
+    }
+
+    handleAddFlashcardClick(){
+        this.props.history.push(`/add_flashcard/-1`);
     }
 
     refreshFlashcards() {
@@ -28,7 +33,8 @@ class ManageFlashcardsComponent extends React.Component {
     }
 
     deleteFlashcardClicked(id, question, answer){
-
+        FlashcardDataService.deleteFlashcard(id)
+        .then(() => { this.refreshFlashcards()})
     }
     updateFlashcardClicked(id, question, answer){
         this.props.history.push(`/flashcard/${id}`)
@@ -59,7 +65,9 @@ class ManageFlashcardsComponent extends React.Component {
                                         <td><button className="btn btn-success" onClick={() => this.updateFlashcardClicked(flashcard.id, flashcard.question, flashcard.answer)}>Update</button></td>
                                     </tr>
                             )
+                            
                         }
+                        <tr><td><button type="button" onClick={this.handleAddFlashcardClick}>Add Flashcard</button></td></tr>
                     </tbody>
                 </table>
             </div>

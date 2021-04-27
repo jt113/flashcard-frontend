@@ -36,8 +36,8 @@ class UpdateFlashcardComponent extends React.Component {
             <div className="container clear-top" id="main">
                 <h1>Update flashcard</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="question" value={this.state.question} onChange={this.handleChange}/>
-                    <input type="text" name="answer" value={this.state.answer} onChange={this.handleChange}/>
+                    Question <input type="text" name="question" value={this.state.question} onChange={this.handleChange}/>
+                    Answer <input type="text" name="answer" value={this.state.answer} onChange={this.handleChange}/>
                     <button type="submit">Save</button>
                 </form>
             </div>
