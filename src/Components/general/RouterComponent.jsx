@@ -9,25 +9,35 @@ import ManageFlashcardsComponent from '../flashcard/ManageFlashcardsComponent';
 import StudyFlashcardsComponent from '../flashcard/StudyFlashcardsComponent';
 import UpdateFlashcardComponent from '../flashcard/UpdateFlashcardComponent'
 import CreateFlashcardComponent from '../flashcard/CreateFlashcardComponent';
+import GoodbyeComponent from '../login/GoodbyeComponent'
 class RouterComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false,
+        }
+        this.setIsLoggedIn = this.setIsLoggedIn.bind(this);
+    }
+    setIsLoggedIn(isUserLoggedIn) {
+        this.setState({ isLoggedIn: isUserLoggedIn });
+    }
     render() {
         return (
             <Router>
                 <>
-                    <HeaderComponent />
+                    <HeaderComponent isLoggedIn={this.state.isLoggedIn} setIsLoggedIn={this.setIsLoggedIn} />
                     <div id="wrap">
-
-                    </div>
                         <Switch>
-
-                            <Route path="/" exact component={WelcomeComponent} />
+                            <Route path="/" exact component={(props) => <WelcomeComponent {...props} setIsLoggedIn={this.setIsLoggedIn} />} />
                             <Route path="/signup" exact component={SignUpComponent} />
                             <Route path="/home" exact component={FlashcardHomeComponent} />
                             <Route path="/manage" exact component={ManageFlashcardsComponent} />
                             <Route path="/study" exact component={StudyFlashcardsComponent} />
                             <Route path="/flashcard/:id" component={UpdateFlashcardComponent} />
                             <Route path="/add_flashcard/:id" component={CreateFlashcardComponent} />
+                            <Route path="/goodbye" exact component={GoodbyeComponent} />
                         </Switch>
+                    </div>
                     <FooterComponent />
                 </>
             </Router>

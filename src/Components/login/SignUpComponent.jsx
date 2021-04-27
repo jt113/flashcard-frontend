@@ -20,15 +20,27 @@ class SignUpComponent extends Component {
             [event.target.name]: event.target.value
         })
     }
-    handleSubmit() {
+    handleSubmit(event) {
         let user = {
             username: this.state.username,
             password: this.state.password
         }
 
-        UserDataService.addUser(user)
-            .then(alert("created user"))
-            .then(this.props.history.push(`/`));
+        UserDataService.ifUsernameIsTaken(user.username)
+            .then(response => {
+                if (response.data.id == 0) {
+                    console.log("username does NOT exist")
+                    UserDataService.addUser(user)
+                        .then(response => console.log(JSON.stringify(response.data)))
+                        .then(this.props.history.push(`/`));
+                }
+
+                else {
+                    console.log("username EXISTS!!")
+                    this.setState({error: "Username already exists."})
+                }
+            })
+        event.preventDefault();
     }
 
     render() {
@@ -61,8 +73,10 @@ class SignUpComponent extends Component {
                                 <div className="form-group">
                                     <button type="submit">Sign up</button>
                                 </div>
+                                {this.state.error && (<p style={{color: "red"}}>{this.state.error}</p>)}
                             </form>
                         </div>
+                        
                     </div>
                 </div>
 
