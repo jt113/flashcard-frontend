@@ -14,6 +14,7 @@ class ManageFlashcardsComponent extends React.Component {
         this.handleAddFlashcardClick = this.handleAddFlashcardClick.bind(this);
     }
     componentDidMount() {
+        document.body.style = 'background: #F7F7F7;';
         this.refreshFlashcards();
     }
 

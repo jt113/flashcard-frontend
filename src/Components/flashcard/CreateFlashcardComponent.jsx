@@ -13,6 +13,9 @@ class CreateFlashcardComponent extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    componentDidMount(){
+        document.body.style = 'background: #F7F7F7;';
+    }
 
     handleChange(event){
         this.setState({

@@ -13,6 +13,9 @@ class UpdateFlashcardComponent extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
+    componentDidMount(){
+        document.body.style = 'background: #F7F7F7;';
+    }
     handleSubmit(event){
         let myflashcard = {
             id: this.state.id,
