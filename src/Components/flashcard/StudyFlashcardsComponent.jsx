@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FlashcardDataService from '../../service/FlashcardDataService'
-
+import CardAnswer from './CardAnwer'
 class StudyFlashcardsComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -53,10 +53,12 @@ class StudyFlashcardsComponent extends React.Component {
     render() {
         return (
             <div className="container clear-top" id="main">
+                <h1>Flashcard Study</h1>
                 <div className="card">
                     <div className="card-body">
                         <h5 className="card-title">{this.getCurrentCard().question}</h5>
-                        <p className="card-text">{this.getCurrentCard().answer}</p>
+                        <CardAnswer answer={this.getCurrentCard().answer} id={this.state.currentFlashcard}/>
+                        
                     </div>
                     <div className="card-body">
                         <button onClick={this.handlePrevClick}>Prev</button>
