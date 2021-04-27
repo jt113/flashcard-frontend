@@ -35,6 +35,10 @@ class ManageFlashcardsComponent extends React.Component {
 
     deleteFlashcardClicked(id, question, answer){
         FlashcardDataService.deleteFlashcard(id)
+        .then(alert("Deleted: " + JSON.stringify({
+            question: question,
+            answer: answer,
+        })))
         .then(() => { this.refreshFlashcards()})
     }
     updateFlashcardClicked(id, question, answer){
