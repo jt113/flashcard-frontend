@@ -9,7 +9,10 @@ class FlashcardHomeComponent extends React.Component {
     render(){
         return(
             <div className="container clear-top" id="main">
+                <br></br>
                 {Cookies.get('username') && (<p style={{ fontSize: '30px' }}>Welcome, {Cookies.get('username')}</p>)}
+                <br></br>
+                <br></br>
                 <table style={{width: '100%', border: '1px solid black' }}>
                     <tr style={{ border: '1px solid black', }}>
                         <td style={{border: '1px solid black', textAlign: 'center', height: '70px' }}>
@@ -20,7 +23,7 @@ class FlashcardHomeComponent extends React.Component {
                         </td>
                     </tr>
                 </table>
-
+                <br></br>
             </div>
         );
     }
