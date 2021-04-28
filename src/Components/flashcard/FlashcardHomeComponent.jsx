@@ -10,10 +10,17 @@ class FlashcardHomeComponent extends React.Component {
         return(
             <div className="container clear-top" id="main">
                 {Cookies.get('username') && (<p>Welcome, {Cookies.get('username')}</p>)}
-                <Link to="/study">Study Flashcards</Link>
-                <br/>
-                <Link to="/manage">Manage Flashcards</Link>
-                
+                <table style={{width: '100%', border: '1px solid black' }}>
+                    <tr style={{ border: '1px solid black', }}>
+                        <td style={{border: '1px solid black', textAlign: 'center', height: '70px' }}>
+                            <Link to="/study">   Study Flashcards   </Link>
+                        </td>
+                        <td style={{ border: '1px solid black', textAlign: 'center', height: '70px' }}>
+                            <Link to="/manage">Manage Flashcards</Link>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
         );
     }
