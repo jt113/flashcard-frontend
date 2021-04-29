@@ -7,12 +7,17 @@ class SignUpComponent extends Component {
         this.state = {
             username: null,
             password: null,
+            jumbotronMinHeight: 900,
+            widthHeightRatio: 0.6,
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
+        const { innerWidth: width, innerHeight: height } = window;
+        console.log("height: " + height);
+        this.setState({ jumbotronMinHeight: height });
     }
 
     handleChange(event) {
@@ -37,7 +42,7 @@ class SignUpComponent extends Component {
 
                 else {
                     console.log("username EXISTS!!")
-                    this.setState({error: "Username already exists."})
+                    this.setState({ error: "Username already exists." })
                 }
             })
         event.preventDefault();
@@ -49,34 +54,42 @@ class SignUpComponent extends Component {
                 <br />
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <div className="jumbotron" style={{ textAlign: "center", backgroundColor: "white" }}>
-                            <h1 style={{ color: "Blue" }}>Sign Up</h1>
+                        <div className="jumbotron"
+                            style={{
+                                textAlign: "center",
+                                backgroundColor: "white",
+                                minHeight: `${this.state.jumbotronMinHeight * 0.85}px`,
+                                maxWidth: `${this.state.jumbotronMinHeight * this.state.widthHeightRatio}px`
+                            }}>
+                            <h1 style={{ color: "Purple" }}>Sign Up</h1>
                             <br />
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="form-group">
-                                    <label>Username</label>
+                            <form onSubmit={this.handleSubmit} style={{marginTop: "80px"}}>
+                                <div className="row form-group justify-content-center p-2 ">
+                                    <label htmlFor="username" className="col-xs-12 col-md-4">Username</label>
                                     <input className="form-control"
                                         type="text"
                                         name="username"
+                                        className="col-xs-12 col-md-5"
                                         onChange={this.handleChange}
                                     />
                                 </div>
-                                <div className="form-group">
-                                    <label>Password</label>
+                                <div className="row form-group justify-content-center p-2 ">
+                                    <label htmlFor="password" className="col-xs-12 col-md-4">Password</label>
                                     <input className="form-control"
                                         type="password"
                                         name="password"
+                                        className="col-xs-12 col-md-5"
                                         onChange={this.handleChange}
                                     />
 
                                 </div>
-                                <div className="form-group">
-                                    <button type="submit">Sign up</button>
+                                <div className="row form-group justify-content-center p-2">
+                                    <button className="button" type="submit">Sign up</button>
                                 </div>
-                                {this.state.error && (<p style={{color: "red"}}>{this.state.error}</p>)}
+                                {this.state.error && (<p style={{ color: "red" }}>{this.state.error}</p>)}
                             </form>
                         </div>
-                        
+
                     </div>
                 </div>
 

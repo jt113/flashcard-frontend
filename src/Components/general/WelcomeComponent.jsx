@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserDataService from '../../service/UserDataService';
 import Cookies from 'js-cookie'
+import FlashcardImage from'./flashcard-img.jpg';
 // props {
 //     setIsLoggedIn(boolean): function
 // }
@@ -61,31 +62,53 @@ class WelcomeComponent extends Component {
             <div className="container clear-top" id="main">
                 <div className="row justify-content-center mt-3">
                     <br />
-                    <div className="col-auto">
-                        <div className="jumbotron" style={{ textAlign: "center",
-                         backgroundColor: "white", minHeight: `${this.state.jumbotronMinHeight * 0.85}px`,
-                         maxWidth: `${this.state.jumbotronMinHeight* this.state.widthHeightRatio}px` }}>
-                            <h1 style={{ color: "Blue" }}>Welcome to Flashcard App!!!</h1>
+                    <div className="col-md">
+                        <div className="jumbotron ml-auto mr-auto" style={{
+                            textAlign: "center",
+                            backgroundColor: "white",
+                            minHeight: `${this.state.jumbotronMinHeight * 0.85}px`,
+                            maxWidth: `${this.state.jumbotronMinHeight * this.state.widthHeightRatio}px`
+                        }}>
+                            <div className="container">
+                                <div className="row justify-content-center">
+                                    <h2 style={{ color: "Purple" }}>Welcome to Flashcard App!!!</h2>
+                                </div>
+                                <div className="row justify-content-center">
+                                    <img src={FlashcardImage} width="30%" alt="flashcards"/>
+                                </div>
+                                
+                                <div style={{ marginTop: "20px" }}>
+                                    <div className="row justify-content-center">
+                                        <h3 style={{ color: "Purple", marginBottom: "15px"}}>Sign in</h3>
+                                    </div>
+
+                                    <div className="row  justify-content-center" >
+                                        <form onSubmit={this.handleSubmit} >
+                                            <div className="row form-group justify-content-center p-2">
+                                                <label htmlFor="username" className="col-xs-12 col-md-4">Username</label>
+
+                                                <input type="text" name="username" className="col-xs-12 col-md-8" onChange={this.handleChange} />
+                                            </div>
+
+                                            <div className="row form-group justify-content-center p-2">
+                                                <label htmlFor="password" className="col-xs-12 col-md-4">Password</label>
+                                                <input type="password" name="password" className="col-xs-12 col-md-8" onChange={this.handleChange} />
+                                            </div>
+                                            <div className="row form-group justify-content-center">
+                                                <button className="button" type="submit">Login</button>
+                                                {this.state.error && <p style={{ color: "red" }}>{this.state.error}</p>}
+
+                                            </div>
+                                            <p>Don't have a username?</p>
+                                            <Link to="/signup">Sign Up</Link>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <br />
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="row form-group justify-content-center p-2">
-                                    <label htmlFor="username" className="col-xs-12 col-md-3">Username</label>
 
-                                    <input type="text" name="username" className="col-xs-12 col-sm-5" onChange={this.handleChange} />
-                                </div>
-
-                                <div className="row form-group justify-content-center p-2">
-                                    <label htmlFor="password" className="col-xs-12 col-md-3">Password</label>
-                                    <input type="password" name="password" className="col-xs-12 col-sm-5" onChange={this.handleChange} />
-                                </div>
-                                <div className="row form-group justify-content-center">
-                                    <button type="submit">Login</button>
-                                    {this.state.error && <p style={{ color: "red" }}>{this.state.error}</p>}
-
-                                </div>
-                                <p>Don't have a username?</p>
-                                <Link to="/signup">Sign Up</Link>
-                            </form>
                         </div>
                     </div>
                 </div>
