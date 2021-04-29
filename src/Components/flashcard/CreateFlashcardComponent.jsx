@@ -44,7 +44,7 @@ class CreateFlashcardComponent extends React.Component {
                 </div>
             </div>
             <div className="row justify-content-center" >
-                <div className="col-md-6 p-5" style={{ border: "solid", borderWidth: "2px", borderRadius: "4px", backgroundColor: "white" }}>
+                <div className="col-md-6 p-5" style={{ border: "solid", borderWidth: "1px", borderRadius: "4px", backgroundColor: "white" }}>
                     <form onSubmit={this.handleSubmit}>
                         <div className="row form-group justify-content-center mt-4 mb-4">
                             <label htmlFor="question" className="col-xs-12 col-md-4">Question</label>

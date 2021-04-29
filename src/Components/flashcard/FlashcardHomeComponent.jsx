@@ -13,7 +13,7 @@ class FlashcardHomeComponent extends React.Component {
                 {Cookies.get('username') && (<p className="text-color-primary" style={{ fontSize: '30px' }}>Welcome, {Cookies.get('username')}</p>)}
                 <br></br>
                 <br></br>
-                <table style={{width: '100%', border: '1px solid black' }}>
+                <table style={{width: '100%', border: '1px solid black', backgroundColor: "white" }}>
                     <tr style={{ border: '1px solid black', }}>
                         <td style={{border: '1px solid black', textAlign: 'center', height: '70px' }}>
                             <Link to="/study"><button className="button">Study Flashcards</button></Link>

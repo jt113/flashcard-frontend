@@ -53,6 +53,7 @@ class ManageFlashcardsComponent extends React.Component {
 
                 </div>
                 <div className="row mb-5">
+                    <div className="col" style={{ border: "solid", borderWidth: "1px", borderRadius: "4px", backgroundColor: "white" }}>
                     <table className="table">
                         <thead>
                             <tr style={{ textAlign: "center", color: "purple"}}>
@@ -80,6 +81,8 @@ class ManageFlashcardsComponent extends React.Component {
                             <tr><td><button className="button" type="button" onClick={this.handleAddFlashcardClick}>Add Flashcard</button></td></tr>
                         </tbody>
                     </table>
+                    </div>
+        
                 </div>
 
             </div>
