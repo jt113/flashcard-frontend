@@ -79,7 +79,7 @@ class WelcomeComponent extends Component {
                                 
                                 <div style={{ marginTop: "20px" }}>
                                     <div className="row justify-content-center">
-                                        <h3 style={{ color: "Purple", marginBottom: "15px"}}>Sign in</h3>
+                                        <h3 className="text-color-primary" style={{ color: "Purple", marginBottom: "15px"}}>Sign in</h3>
                                     </div>
 
                                     <div className="row  justify-content-center" >

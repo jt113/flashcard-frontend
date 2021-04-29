@@ -9,6 +9,10 @@
   box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
 }
 
+.text-color-primary {
+  color: purple;
+}
+
 #wrap {
   min-height: 100%;
 }
@@ -38,4 +42,30 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 6px;
+}
+
+.button-2:disabled,
+.button[disabled]{
+  padding: 8px 15px 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: default;
+  border-radius: 2px;
+  background-color: #cccccc;
+  color: #666666;
+}
+.button-2 {
+  background-color: #3396b4; /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

@@ -18,7 +18,7 @@ class ManageFlashcardsComponent extends React.Component {
         this.refreshFlashcards();
     }
 
-    handleAddFlashcardClick(){
+    handleAddFlashcardClick() {
         this.props.history.push(`/add_flashcard/-1`);
     }
 
@@ -33,48 +33,55 @@ class ManageFlashcardsComponent extends React.Component {
             )
     }
 
-    deleteFlashcardClicked(id, question, answer){
+    deleteFlashcardClicked(id, question, answer) {
         FlashcardDataService.deleteFlashcard(id)
-        .then(alert("Deleted: " + JSON.stringify({
-            question: question,
-            answer: answer,
-        })))
-        .then(() => { this.refreshFlashcards()})
+            .then(alert("Deleted: " + JSON.stringify({
+                question: question,
+                answer: answer,
+            })))
+            .then(() => { this.refreshFlashcards() })
     }
-    updateFlashcardClicked(id, question, answer){
+    updateFlashcardClicked(id, question, answer) {
         this.props.history.push(`/flashcard/${id}`)
     }
     render() {
         return (
             <div className="container clear-top" id="main">
-                <h1>Manage Flashcards</h1>
-                <table className="table">
-                    <thead>
-                        <tr style={{ textAlign: "center", color: "green" }}>
-                            <th>Id</th>
-                            <th>Question</th>
-                            <th>Answer</th>
-                            <th>Delete</th>
-                            <th>Update</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.flashcards.map(
-                                flashcard =>
-                                    <tr style={{ textAlign: "center" }} key={flashcard.id}>
-                                        <td>{flashcard.id}</td>
-                                        <td>{flashcard.question}</td>
-                                        <td>{flashcard.answer}</td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteFlashcardClicked(flashcard.id, flashcard.question, flashcard.answer)}>Delete</button></td>
-                                        <td><button className="btn btn-success" onClick={() => this.updateFlashcardClicked(flashcard.id, flashcard.question, flashcard.answer)}>Update</button></td>
-                                    </tr>
-                            )
-                            
-                        }
-                        <tr><td><button type="button" onClick={this.handleAddFlashcardClick}>Add Flashcard</button></td></tr>
-                    </tbody>
-                </table>
+                <br />
+                <div className="row mb-5">
+                    <h1 className="text-color-primary">Manage Flashcards</h1>
+
+                </div>
+                <div className="row mb-5">
+                    <table className="table">
+                        <thead>
+                            <tr style={{ textAlign: "center", color: "purple"}}>
+                                <th>Id</th>
+                                <th>Question</th>
+                                <th>Answer</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.flashcards.map(
+                                    flashcard =>
+                                        <tr style={{ textAlign: "center" }} key={flashcard.id}>
+                                            <td>{flashcard.id}</td>
+                                            <td>{flashcard.question}</td>
+                                            <td>{flashcard.answer}</td>
+                                            <td><button className="btn btn-warning" onClick={() => this.deleteFlashcardClicked(flashcard.id, flashcard.question, flashcard.answer)}>Delete</button></td>
+                                            <td><button className="btn btn-success" onClick={() => this.updateFlashcardClicked(flashcard.id, flashcard.question, flashcard.answer)}>Update</button></td>
+                                        </tr>
+                                )
+
+                            }
+                            <tr><td><button className="button" type="button" onClick={this.handleAddFlashcardClick}>Add Flashcard</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         );
     }

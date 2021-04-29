@@ -10,7 +10,7 @@ class StudyFlashcardsComponent extends React.Component {
         }
         this.getCurrentCard = this.getCurrentCard.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this);
-        this.handlePrevClick =this.handlePrevClick.bind(this);
+        this.handlePrevClick = this.handlePrevClick.bind(this);
     }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
@@ -22,7 +22,7 @@ class StudyFlashcardsComponent extends React.Component {
         }
         else {
             return this.state.flashcards[this.state.currentFlashcard]
-            
+
         }
     }
 
@@ -37,34 +37,52 @@ class StudyFlashcardsComponent extends React.Component {
             )
     }
 
-    handleNextClick(){
-        if(this.state.currentFlashcard === this.state.flashcards.length-1){
+    handleNextClick() {
+        if (this.state.currentFlashcard === this.state.flashcards.length - 1) {
             return;
         }
-        this.setState(prevState => ({...this.state, currentFlashcard: prevState.currentFlashcard + 1}))
+        this.setState(prevState => ({ ...this.state, currentFlashcard: prevState.currentFlashcard + 1 }))
     }
-    handlePrevClick(){
-        if(this.state.currentFlashcard === 0){
+    handlePrevClick() {
+        if (this.state.currentFlashcard === 0) {
             return;
         }
-        this.setState(prevState => ({...this.state, currentFlashcard: prevState.currentFlashcard-1}))
+        this.setState(prevState => ({ ...this.state, currentFlashcard: prevState.currentFlashcard - 1 }))
     }
 
     render() {
         return (
             <div className="container clear-top" id="main">
-                <h1>Flashcard Study</h1>
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">{this.getCurrentCard().question}</h5>
-                        <CardAnswer answer={this.getCurrentCard().answer} id={this.state.currentFlashcard}/>
-                        
-                    </div>
-                    <div className="card-body">
-                        <button onClick={this.handlePrevClick}>Prev</button>
-                        <button onClick={this.handleNextClick}>Next</button>
+                <br />
+                <div className="row justify-content-center mb-5">
+                    <div className="col-md-6">
+                        <div className="ml-auto mr-auto">
+                            <h1 className="text-color-primary">Flashcard Study</h1>
+                        </div>
                     </div>
                 </div>
+                <div className="row justify-content-center mb-5">
+                    <div className="col-md-6">
+                        <div className="card">
+                            <div class="card-header" style={{backgroundColor: "#3396b4", color: "white"}}>
+                            <h5>{this.getCurrentCard().question}</h5>
+                            </div>
+                            <div className="card-body">
+                                
+                                <CardAnswer answer={this.getCurrentCard().answer} id={this.state.currentFlashcard} />
+
+                            </div>
+                            <div className="card-body">
+                                
+                                <button className="button-2" onClick={this.handlePrevClick} disabled={this.state.currentFlashcard === 0}>Prev</button>
+                                <button className="button-2" onClick={this.handleNextClick} disabled={this.state.currentFlashcard === this.state.flashcards.length-1}>Next</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
         );
     }

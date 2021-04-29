@@ -54,7 +54,7 @@ class SignUpComponent extends Component {
                 <br />
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <div className="jumbotron"
+                        <div className="jumbotron  ml-auto mr-auto"
                             style={{
                                 textAlign: "center",
                                 backgroundColor: "white",
