@@ -15,7 +15,7 @@ class SignUpComponent extends Component {
     }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
-        const { innerWidth: width, innerHeight: height } = window;
+        const { innerHeight: height } = window;
         console.log("height: " + height);
         this.setState({ jumbotronMinHeight: height });
     }
@@ -33,7 +33,7 @@ class SignUpComponent extends Component {
 
         UserDataService.ifUsernameIsTaken(user.username)
             .then(response => {
-                if (response.data.id == 0) {
+                if (response.data.id === 0) {
                     console.log("username does NOT exist")
                     UserDataService.addUser(user)
                         .then(response => console.log(JSON.stringify(response.data)))
@@ -66,19 +66,17 @@ class SignUpComponent extends Component {
                             <form onSubmit={this.handleSubmit} style={{marginTop: "80px"}}>
                                 <div className="row form-group justify-content-center p-2 ">
                                     <label htmlFor="username" className="col-xs-12 col-md-4">Username</label>
-                                    <input className="form-control"
+                                    <input className="form-control col-xs-12 col-md-5"
                                         type="text"
                                         name="username"
-                                        className="col-xs-12 col-md-5"
                                         onChange={this.handleChange}
                                     />
                                 </div>
                                 <div className="row form-group justify-content-center p-2 ">
                                     <label htmlFor="password" className="col-xs-12 col-md-4">Password</label>
-                                    <input className="form-control"
+                                    <input className="form-control col-xs-12 col-md-5"
                                         type="password"
                                         name="password"
-                                        className="col-xs-12 col-md-5"
                                         onChange={this.handleChange}
                                     />
 

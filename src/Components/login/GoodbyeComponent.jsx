@@ -1,9 +1,6 @@
 import React from 'react';
 import goodbyeImage from './goodbye.png'
 class GoodbyeComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
     }

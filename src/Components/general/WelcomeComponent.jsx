@@ -21,7 +21,7 @@ class WelcomeComponent extends Component {
     }
     componentDidMount() {
         document.body.style = 'background: #F7F7F7;';
-        const { innerWidth: width, innerHeight: height } = window;
+        const { innerHeight: height } = window;
         console.log("height: " + height);
         this.setState({ jumbotronMinHeight: height });
         var loggedInUser = Cookies.get('username');
@@ -39,7 +39,7 @@ class WelcomeComponent extends Component {
         UserDataService.ifCredentialsMatch(user)
             .then(response => {
                 console.log("response.data: " + JSON.stringify(response.data));
-                if (response.data.id == 0) {
+                if (response.data.id === 0) {
                     this.setState({ error: "Username or password is incorrect" });
                 }
                 else {

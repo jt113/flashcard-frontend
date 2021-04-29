@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FlashcardDataService from '../../service/FlashcardDataService'
 import CardAnswer from './CardAnwer'
 class StudyFlashcardsComponent extends React.Component {
@@ -64,7 +64,7 @@ class StudyFlashcardsComponent extends React.Component {
                 <div className="row justify-content-center mb-5">
                     <div className="col-md-6">
                         <div className="card">
-                            <div class="card-header" style={{backgroundColor: "#3396b4", color: "white"}}>
+                            <div className="card-header" style={{backgroundColor: "#3396b4", color: "white"}}>
                             <h5>{this.getCurrentCard().question}</h5>
                             </div>
                             <div className="card-body">
